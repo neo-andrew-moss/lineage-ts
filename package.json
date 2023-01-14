@@ -1,6 +1,6 @@
 {
   "name": "lineage-ts",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "CLI to identify all descendant imports of a ts file",
   "keywords": [
     "ts-morph",
