@@ -1,0 +1,93 @@
+{
+  "name": "lineage-ts",
+  "version": "0.0.1",
+  "description": "CLI to identify all descendant imports of a ts file",
+  "keywords": [
+    "ts-morph",
+    "tree",
+    "import"
+  ],
+  "homepage": "https://github.com/neo-andrew-moss/lineage-ts#readme",
+  "bugs": {
+    "url": "https://github.com/neo-andrew-moss/lineage-ts/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neo-andrew-moss/lineage-ts.git"
+  },
+  "license": "MIT",
+  "author": "Andrew Moss <andrew@m0ss.dev>",
+  "sideEffects": false,
+  "main": "./dist/src/index.js",
+  "module": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "bin": {
+    "lineage-ts": "./bin/lineage-ts.js"
+  },
+  "directories": {
+    "src": "src"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "lint:src": "eslint 'src/**/*.ts' --fix",
+    "lint:spec": "eslint '__specs__/**/*.ts' --fix",
+    "lint:markdown": "markdownlint --fix '**/*.md'",
+    "lint": "run-s lint:*",
+    "pkg-ok": "pkg-ok",
+    "prepublishOnly": "npm run pkg-ok",
+    "prerelease": "npm run build",
+    "release": "release-it",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "DEBUG='lineage-ts' && npm run build && node ."
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "clear": "^0.1.0",
+    "commander": "^7.2.0",
+    "debug": "^4.3.4",
+    "dot-object": "^2.1.4",
+    "figlet": "^1.5.2",
+    "lodash": "^4.17.21",
+    "ts-morph": "^14.0.0"
+  },
+  "devDependencies": {
+    "@release-it/conventional-changelog": "^5.1.1",
+    "@types/clear": "^0.1.2",
+    "@types/debug": "^4.1.7",
+    "@types/dot-object": "^2.1.2",
+    "@types/figlet": "^1.5.5",
+    "@types/lodash": "^4.14.191",
+    "@types/node": "^18.11.18",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
+    "eslint": "^8.31.0",
+    "eslint-config-xo": "^0.43.1",
+    "eslint-config-xo-typescript": "^0.55.1",
+    "markdownlint-cli": "^0.33.0",
+    "npm-run-all": "^4.1.5",
+    "pkg-ok": "^3.0.0",
+    "release-it": "^15.6.0",
+    "typescript": "^4.9.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "release-it": {
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular",
+        "infile": "CHANGELOG.md"
+      }
+    },
+    "git": {
+      "commitMessage": "chore: release v${version}"
+    },
+    "github": {
+      "release": true,
+      "web": true
+    }
+  }
+}
