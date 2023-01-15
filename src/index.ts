@@ -19,6 +19,7 @@ program
 	.version(pkg.version)
 	.description('descendan-ts')
 	.requiredOption('-f, --file <string>', 'entrypoint filepath')
+	.option("-tsc, --tsconfig <string>, 'tsconfig.json filepath")
 	.parse(process.argv);
 
 const options = program.opts();
@@ -28,7 +29,7 @@ program.parse();
 console.log('opts');
 console.log(options);
 
-lineage(options.file);
+lineage(options.file,options.tsconfig);
 
 if (!process.argv.slice(2).length) {
 	program.outputHelp();
