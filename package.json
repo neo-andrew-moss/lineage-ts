@@ -41,7 +41,7 @@
     "prerelease": "npm run build",
     "release": "release-it",
     "test": "jest",
-    "start": "DEBUG='lineage-ts' && npm run build && node ."
+    "start": "npm run build && DEBUG=* node ."
   },
   "dependencies": {
     "chalk": "^4.1.2",
@@ -50,6 +50,7 @@
     "debug": "^4.3.4",
     "dot-object": "^2.1.4",
     "figlet": "^1.5.2",
+    "fp-ts": "^2.13.1",
     "lodash": "^4.17.21",
     "ts-morph": "^14.0.0"
   },

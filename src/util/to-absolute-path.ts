@@ -8,4 +8,10 @@ export const toAbsolutePath = (filePath: string) => {
 	return path.resolve(filePath);
 };
 
-export const toAbs = (...filePaths: Array<string | undefined>) => filePaths.map(f => f ? toAbsolutePath(f) : undefined);
+export const maybeToAbsolutePath = (filePath?: string) => {
+	if (!filePath) {
+		return undefined;
+	}
+
+	return toAbsolutePath(filePath);
+};

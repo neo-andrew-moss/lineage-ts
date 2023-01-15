@@ -14,7 +14,7 @@
 
 ## About
 
-`ts-lineage` takes a typescript file, extracts its dependencies via [ts-morph](https://github.com/dependents/node-precinct/), resolves each relative import to a file on the filesystem, then "recursively" performs those steps on the descendant imports until all relative imports are resolved.
+`ts-lineage` takes a typescript file, extracts its dependencies via [ts-morph](https://github.com/dsherret/ts-morph), resolves each relative import to a file on the filesystem, then "recursively" performs those steps on the descendant imports until all relative imports are resolved.
 
 ## Installation
 
@@ -26,8 +26,7 @@ npm install lineage-ts
 
 - `-f, --file <string>`(required): path to the root file)
 - `-tsc, --tsconfig <string>`(optional): path to a typescript config
-- `-dir, --destDir <string>`(optional): directory to copy the resolved dependency tree to
-- `-dbg, debug <boolean>`(optional): Run in debug mode
+- `-dir, --destDir <string>`(optional): directory to which the resolved dependency tree should be copied to
 
 ## Use cases
 

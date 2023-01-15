@@ -9,12 +9,12 @@ import compact from "lodash/compact";
 export type Map1 = Map<string, Map1>;
 
 /**
- * @note I created this to avoid recursion. It is highly impure and mutable. Not a fam.
+ * @note I created this to avoid recursion. It is highly impure and mutable. Not a fan.
  * @param sourceFile
  * @param project
  * @returns
  */
-function getImportsFromSourceFileAlt(sourceFile: SourceFile, project: Project) {
+const getImportsFromSourceFileAlt = ( sourceFile: SourceFile, project: Project) => {
   const imports: Map1 = new Map<string, Map<string, Map1>>();
   const queue = [sourceFile];
 

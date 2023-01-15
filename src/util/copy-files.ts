@@ -1,15 +1,14 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import {join} from 'path';
-import {dbg} from './dbg';
 
 /**
  * Copy all descendants of a barrel file
  * @param filePath a filePath that includes `index.ts`
- * @param newDirectory 
- * @returns 
+ * @param newDirectory
+ * @returns
  */
-function copyBarrelDescendantDirectoriesSync(filePath: string, newDirectory: string) {
+const copyBarrelDescendantDirectoriesSync = (filePath: string, newDirectory: string) => {
 	if (!filePath.includes('index.ts')) {
 		return;
 	}
@@ -35,7 +34,7 @@ function copyBarrelDescendantDirectoriesSync(filePath: string, newDirectory: str
 	} catch (err) {
 		console.error(err);
 	}
-}
+};
 
 const commonBasePath = (filePaths: string[]) => {
 	let commonPath = path.dirname(filePaths[0]);
