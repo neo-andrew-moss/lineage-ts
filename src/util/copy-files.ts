@@ -1,6 +1,41 @@
 import * as fs from 'fs';
 import * as path from 'path';
+import {join} from 'path';
 import {dbg} from './dbg';
+
+/**
+ * Copy all descendants of a barrel file
+ * @param filePath a filePath that includes `index.ts`
+ * @param newDirectory 
+ * @returns 
+ */
+function copyBarrelDescendantDirectoriesSync(filePath: string, newDirectory: string) {
+	if (!filePath.includes('index.ts')) {
+		return;
+	}
+
+	const directory = join(filePath, '..');
+	try {
+		fs.mkdirSync(newDirectory, {recursive: true});
+	} catch (err) {
+		console.error(err);
+	}
+
+	try {
+		const files = fs.readdirSync(directory, {withFileTypes: true});
+		files.forEach(file => {
+			const source = join(directory, file.name);
+			const destination = join(newDirectory, file.name);
+			if (file.isDirectory()) {
+				copyBarrelDescendantDirectoriesSync(source, destination);
+			} else {
+				fs.copyFileSync(source, destination);
+			}
+		});
+	} catch (err) {
+		console.error(err);
+	}
+}
 
 const commonBasePath = (filePaths: string[]) => {
 	let commonPath = path.dirname(filePaths[0]);
@@ -21,6 +56,10 @@ const copyFile = (
 	const relativeFilePath = path.relative(commonBasePath, filePath);
 	const destFilePath = path.join(destDir, relativeFilePath);
 	const destFileDir = path.dirname(destFilePath);
+
+	if (filePath.includes('index.ts')) {
+		copyBarrelDescendantDirectoriesSync(filePath, destFileDir);
+	}
 
 	if (!fs.existsSync(destFileDir)) {
 		fs.mkdirSync(destFileDir, {recursive: true});
