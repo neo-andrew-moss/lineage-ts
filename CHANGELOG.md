@@ -1,5 +1,12 @@
 
 
+## [0.3.1](https://github.com/neo-andrew-moss/lineage-ts/compare/0.3.0...0.3.1) (2023-01-15)
+
+
+### Bug Fixes
+
+* Copying all decendants of a barrel ([8217f62](https://github.com/neo-andrew-moss/lineage-ts/commit/8217f626e44e0f9c24d6af506f1f893722d072c7))
+
 # [0.3.0](https://github.com/neo-andrew-moss/lineage-ts/compare/0.2.0...0.3.0) (2023-01-15)
 
 
