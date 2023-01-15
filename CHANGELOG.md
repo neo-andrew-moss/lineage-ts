@@ -1,5 +1,12 @@
 
 
+# [0.3.0](https://github.com/neo-andrew-moss/lineage-ts/compare/0.2.0...0.3.0) (2023-01-15)
+
+
+### Features
+
+* Adding some docs, abs path converters ([df6c6d9](https://github.com/neo-andrew-moss/lineage-ts/commit/df6c6d91500673b8952f0002c58129614916dc97))
+
 # [0.2.0](https://github.com/neo-andrew-moss/lineage-ts/compare/0.1.0...0.2.0) (2023-01-15)
 
 
