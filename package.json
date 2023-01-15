@@ -40,7 +40,7 @@
     "prepublishOnly": "npm run pkg-ok",
     "prerelease": "npm run build",
     "release": "release-it",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "DEBUG='lineage-ts' && npm run build && node ."
   },
   "dependencies": {
@@ -59,6 +59,7 @@
     "@types/debug": "^4.1.7",
     "@types/dot-object": "^2.1.2",
     "@types/figlet": "^1.5.5",
+    "@types/jest": "^29.2.5",
     "@types/lodash": "^4.14.191",
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.48.1",
@@ -66,10 +67,13 @@
     "eslint": "^8.31.0",
     "eslint-config-xo": "^0.43.1",
     "eslint-config-xo-typescript": "^0.55.1",
+    "jest": "^29.3.1",
     "markdownlint-cli": "^0.33.0",
     "npm-run-all": "^4.1.5",
     "pkg-ok": "^3.0.0",
     "release-it": "^15.6.0",
+    "ts-jest": "^29.0.5",
+    "ts-node": "^10.9.1",
     "typescript": "^4.9.4"
   },
   "engines": {
