@@ -5,7 +5,6 @@ import {
   type SourceFile,
 } from "ts-morph";
 import compact from "lodash/compact";
-import { dbg } from "./util";
 
 type Map1 = Map<string, Map1>;
 
@@ -89,7 +88,7 @@ const getImportsFromSourceFile = (sourceFile: SourceFile): ImportTree => {
   return compact(imports);
 };
 
-export const findDescendantImports = (filePath: string, tsConfigPath?:string): ImportTree => {
+export const findDescendantImports = (filePath: string, tsConfigPath?:string) => {
   const project = new Project({
     skipAddingFilesFromTsConfig: true,
     tsConfigFilePath:
@@ -102,7 +101,5 @@ export const findDescendantImports = (filePath: string, tsConfigPath?:string): I
     throw new Error("entrypoint not found");
   }
 
-  const f = getImportsFromSourceFileAlt(sourceFile, project);
-  dbg(f);
-  return getImportsFromSourceFile(sourceFile);
+  return getImportsFromSourceFileAlt(sourceFile,project);
 };
