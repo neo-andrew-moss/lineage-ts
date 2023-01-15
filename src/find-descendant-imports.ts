@@ -6,7 +6,7 @@ import {
 } from "ts-morph";
 import compact from "lodash/compact";
 
-type Map1 = Map<string, Map1>;
+export type Map1 = Map<string, Map1>;
 
 /**
  * @note I created this to avoid recursion. It is highly impure and mutable. Not a fam.

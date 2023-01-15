@@ -34,7 +34,7 @@
     "build": "tsc -p tsconfig.build.json",
     "lint:src": "eslint 'src/**/*.ts' --fix",
     "lint:spec": "eslint '__specs__/**/*.ts' --fix",
-    "lint:markdown": "markdownlint --fix '**/*.md'",
+    "lint:markdown": "markdownlint --fix 'README.md'",
     "lint": "run-s lint:*",
     "pkg-ok": "pkg-ok",
     "prepublishOnly": "npm run pkg-ok",
